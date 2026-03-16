@@ -12,4 +12,4 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
-ENTRYPOINT ["dotnet", "RealityAPI.dll"]
+ENTRYPOINT ["dotnet", "REALITY.dll"]
