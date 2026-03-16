@@ -2,10 +2,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY *.csproj ./
-RUN dotnet restore
-
 COPY . .
+
+RUN dotnet restore REALITY.csproj
 RUN dotnet publish REALITY.csproj -c Release -o /app/publish
 
 # Runtime stage
@@ -15,4 +14,3 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "REALITY.dll"]
-    
