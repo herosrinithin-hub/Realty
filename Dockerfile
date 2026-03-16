@@ -4,8 +4,8 @@ WORKDIR /src
 
 COPY . .
 
-RUN dotnet restore REALITY.csproj
-RUN dotnet publish REALITY.csproj -c Release -o /app/publish
+RUN dotnet restore ./REALITY.csproj
+RUN dotnet publish ./REALITY.csproj -c Release -o /app/publish
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
